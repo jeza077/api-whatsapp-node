@@ -15,6 +15,7 @@ const VerifyToken = (req, res) => {
 
 
     } catch (e) {
+        res.send(e);
         res.status(400).send();
     }
 
