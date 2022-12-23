@@ -5,26 +5,17 @@ const VerifyToken = (req, res) => {
         var token = req.query["hub.verify_token"];
         var challenge = req.query["hub.challenge"];
 
+
         if(challenge != null && token != null && token == accessToken){
             res.send(challenge);
-            // res.send('Holaaaaa')
         } else {
-            // res.send("acc " + accessToken);
-            res.send("tk " + token);
             res.status(400).send();
         }
-        // res.send("Hola verifyToken");
 
-
-    } catch (e) {
-        // res.send('holaaa');
-
-        // res.send(e);
+    } catch(e){
         res.status(400).send();
     }
 
-
-    // res.send("Hola verifyToken");
 }
 
 const ReceiveMessage = (req, res) => {
