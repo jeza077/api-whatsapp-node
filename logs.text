@@ -1,0 +1,9 @@
+[
+  {
+    from: '16315551234',
+    id: 'wamid.ABGGFlCGg0cvAgo-sJQh43L5Pe4W',
+    timestamp: '1603059201',
+    text: { body: 'Hola, es una prueba' },
+    type: 'text'
+  }
+]
