@@ -1,4 +1,4 @@
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 const https = require('https');
 
 const SendMessageWhatsapp = (textResponse, number) => {
@@ -25,7 +25,7 @@ const SendMessageWhatsapp = (textResponse, number) => {
             "Content-Type": "application/json",
             Authorization: "Bearer EAAubQGSCTC8BANIIC4yGTaK3xMdSZAxxJtjbgQ2pod2FyZCxJIyd8j7YybgYuLWd1xQdBiVsypwMdVE6uULjSBqb3WzpO6sHg8EYRoYez3ANaU2LtEVp7ZAZA49prNZBOIavOmymoweSYAQbMoLJDjU8pt7eKNvTO1OgBGxGdMqWY7FsZC4x0c"
         }
-    }
+    };
 
 
     const req = https.request(options, res => {
@@ -36,7 +36,7 @@ const SendMessageWhatsapp = (textResponse, number) => {
 
     req.on("error", err => {
         console.log(err);
-    })
+    });
 
     req.write(data);
     req.end();
