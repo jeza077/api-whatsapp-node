@@ -29,8 +29,11 @@ const ReceiveMessage = (req, res) => {
         let changes = (entry["changes"])[0];
         let value = changes["value"];
         let messageObject = value["messages"];
-
-        myConsole.log(messageObject);
+        let messages = messageObject[0];
+        let text = GetTextUser(messages);
+        
+        
+        // myConsole.log(messageObject);
         res.send("EVENT_RECEIVED");
     } catch (e) {
         myConsole.log(e);
@@ -40,6 +43,42 @@ const ReceiveMessage = (req, res) => {
     // res.send('holaaaaa receive')
 
 }
+
+
+
+const GetTextUser = (messages) => {
+    let text = "";
+    let typeMessage = messages["type"];
+
+    if(typeMessage == "text"){
+        text = (messages["text"])["body"];
+
+    } else if(typeMessage == "interactive"){
+        let interactiveObject = messages["interactive"];
+        let typeInteractive = interactiveObject["type"];
+        console.log(interactiveObject);
+
+        if(typeInteractive == "button_reply"){
+            text = (interactiveObject["button_reply"])["title"];
+
+        } else if(typeInteractive == "list_reply"){
+            text = (interactiveObject["list_reply"])["title"];
+
+        } else {
+            myConsole.log("Sin mensaje");
+            console.log("sin mesage");
+        }
+
+    } else {
+        myConsole.log("Sin mensaje");
+        console.log("sin mesage");
+    }
+
+    return text;
+}
+
+
+
 
 module.exports = {
     VerifyToken,
