@@ -34,8 +34,8 @@ const SendMessageWhatsapp = (textResponse, number) => {
         });
     });
 
-    req.on("error", err => {
-        console.log(err);
+    req.on("error", error => {
+        console.error(error);
     });
 
     req.write(data);
