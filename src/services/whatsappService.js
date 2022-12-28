@@ -23,7 +23,7 @@ const SendMessageWhatsapp = (textResponse, number) => {
         body: data,
         headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer EAAubQGSCTC8BANIIC4yGTaK3xMdSZAxxJtjbgQ2pod2FyZCxJIyd8j7YybgYuLWd1xQdBiVsypwMdVE6uULjSBqb3WzpO6sHg8EYRoYez3ANaU2LtEVp7ZAZA49prNZBOIavOmymoweSYAQbMoLJDjU8pt7eKNvTO1OgBGxGdMqWY7FsZC4x0c"
+            Authorization: "Bearer EAAubQGSCTC8BABG46vamm0L6ID19oQdCRUiRIffxfrVo3j6wHMZChUoDx9v9O3mGGOW8OFlMo58im82oZCU9mFXPrUAjLfyk2ZA1bZAhC9VT4kCGzHDhwXFHZAEGg7lEZA8DobLF63qWMjOZB1OZC5bd2LsibkE1ST0sVw99DIM1OZBeOzXZCUk8QQ"
         }
     };
 
