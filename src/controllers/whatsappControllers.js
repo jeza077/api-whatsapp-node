@@ -34,11 +34,11 @@ const ReceiveMessage = (req, res) => {
 
         if(typeof messageObject != "undefined"){
             let messages = messageObject[0];
-            let number = messages["from"];
+            // let number = messages["from"];
             let text = GetTextUser(messages);
             
             console.log(text);
-            whatsappService.SendMessageWhatsapp(`El usuario dijo : ${text}`, number);
+            // whatsappService.SendMessageWhatsapp(`El usuario dijo : ${text}`, number);
         }
         
         
