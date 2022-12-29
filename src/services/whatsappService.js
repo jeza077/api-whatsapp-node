@@ -1,20 +1,7 @@
 // const res = require('express/lib/response');
 const https = require('https');
 
-const SendMessageWhatsapp = (textResponse, number) => {
-    
-    const data = JSON.stringify(
-        {
-            "messaging_product": "whatsapp",    
-            "recipient_type": "individual",
-            "to": number,
-            "type": "text",
-            "text": {
-                "preview_url": false,
-                "body": textResponse
-            }
-        }
-    );
+const SendMessageWhatsapp = (data) => {
 
     const options = {
         host: "graph.facebook.com",
