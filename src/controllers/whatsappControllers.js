@@ -37,8 +37,9 @@ const ReceiveMessage = (req, res) => {
             let number = messages["from"];
             let text = GetTextUser(messages);
             
-            console.log(text);
-            console.log(number);
+            // console.log(text);
+            // console.log(number);
+            console.log(messageObject);
             // whatsappService.SendMessageWhatsapp(`El usuario dijo : ${text}`, number);
 
             if(text == 'text'){
