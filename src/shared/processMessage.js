@@ -2,13 +2,17 @@ const whatsappModel = require('../shared/whatsappModels');
 const whatsappService = require('../services/whatsappService');
 const templatesMessages = require('../shared/templateMessages');
 
+let name2 = false;
+
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUser);
-    let name2 = false;
     let name1 = '';
+    // let name3 = false;
+
 
     let models = [];
+  
 
     if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && name2 == false) {
         let template = templatesMessages.SaludoBienvenida();
@@ -46,6 +50,10 @@ const Process = (textUser, number) => {
     models.forEach(model => {
         whatsappService.SendMessageWhatsapp(model);    
     });
+
+    // if(name2 == true) {
+    //     name3 = true;
+    // }
 
         
 }
