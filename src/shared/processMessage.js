@@ -3,11 +3,13 @@ const whatsappService = require('../services/whatsappService');
 const templatesMessages = require('../shared/templateMessages');
 
 let name2 = false;
+let adress1 = false;
 
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUser);
     let name1 = '';
+    let address2 = '';
     // let name3 = false;
 
 
@@ -33,11 +35,10 @@ const Process = (textUser, number) => {
 
         console.log(name2 + '---desde peticion nombre');
 
-    } else if(textFormateado != '' && textFormateado.includes('2') && name2 == false) {
+    } else if(textFormateado != '' && textFormateado.includes('2')) {
 
         let model = whatsappModel.MessageText('Por ahora solo esta la opcion numero 1 disponible. Por favor selecciona la opcion disponible😀.', number);
         models.push(model);
-
 
         // name2 = true;
 
@@ -45,11 +46,20 @@ const Process = (textUser, number) => {
 
     } else if(textFormateado != '' && name2 == true){
         name1 = textFormateado;
-        let model = whatsappModel.MessageText(`Excelente, *${name1}.*\nTE AMO MUCHO🖤💛`, number);
+        let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);
         models.push(model);
 
-        console.log(name2 + '---desde ya el nombre');
+        let modelDireccion = whatsappModel.MessageText(`Por favor, envíame tu dirección completa en una sola linea`, number);
+        models.push(modelDireccion);
 
+        address1 = true;
+
+        // console.log(name2 + '---desde ya el nombre');
+
+    } else if(name1 != '' && address1 == true) {
+        address2 = textFormateado;
+        let model = whatsappModel.MessageText(`Tu dirrección es:, *${address2}.*`, number);
+        models.push(model);
 
     } else {
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);

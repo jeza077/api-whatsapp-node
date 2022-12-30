@@ -4,7 +4,8 @@ const SaludoBienvenida = () => {
     const data = 'Hola 😁, soy tu asistente virtual. \n\n\n'+
                 'Dime cómo te puedo ayudar:\n\n'+
                 '1⃣ Hacer un *pedido a domicilio* 🛵\n'+
-                '2⃣ Hacer alguna *sugerencia* 📨'
+                '2⃣ Hacer alguna *sugerencia* 📨\n\n\n'+
+                'Escribe el numero de opcion que desees. 😃'
 
     return data;
 
