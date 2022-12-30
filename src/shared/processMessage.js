@@ -4,7 +4,7 @@ const templatesMessages = require('../shared/templateMessages');
 
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
-    const textFormateado = removeAccents(textUser);
+    const textFormateado = quitarAcentos(textUser);
 
     let models = [];
 
@@ -17,7 +17,7 @@ const Process = (textUser, number) => {
 
         let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
         models.push(model);
-        let modelName = whatsappModel.MessageText('Por favor, compárteme tu *nombre.* _(Ej: Maria Avelar)_', number);
+        let modelName = whatsappModel.MessageTextName('Por favor, compárteme tu *nombre.* _(Ej: Maria Avelar)_', number);
         models.push(modelName);
 
 
