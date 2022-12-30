@@ -33,9 +33,19 @@ const Process = (textUser, number) => {
 
         console.log(name2 + '---desde peticion nombre');
 
+    } else if(textFormateado != '' && textFormateado.includes('2') && name2 == false) {
+
+        let model = whatsappModel.MessageText('Por ahora solo esta la opcion numero 1 disponible. Por favor selecciona la opcion disponible😀.', number);
+        models.push(model);
+
+
+        // name2 = true;
+
+        console.log(name2 + '---desde peticion buzon');
+
     } else if(textFormateado != '' && name2 == true){
         name1 = textFormateado;
-        let model = whatsappModel.MessageText('Excelente, ' + name1, number);
+        let model = whatsappModel.MessageText(`Excelente, *${name1}.*\nTE AMO MUCHO🖤💛`, number);
         models.push(model);
 
         console.log(name2 + '---desde ya el nombre');
