@@ -45,7 +45,7 @@ const Process = (textUser, number) => {
         console.log(name2 + '---desde peticion buzon');
 
     } else if(textFormateado != '' && name2 == true){
-        name1 = textFormateado;
+        name1 = textUser;
         let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);
         models.push(model);
 
@@ -57,7 +57,7 @@ const Process = (textUser, number) => {
         // console.log(name2 + '---desde ya el nombre');
 
     } else if(name1 != '' && address1 == true) {
-        address2 = textFormateado;
+        address2 = textUser;
         let model = whatsappModel.MessageText(`Tu dirrección es:, *${address2}.*`, number);
         models.push(model);
 
