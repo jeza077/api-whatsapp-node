@@ -39,7 +39,8 @@ const ReceiveMessage = (req, res) => {
             
             // console.log(text);
             // console.log(number);
-            console.log(messageObject);
+            let interactiveObject = messages["interactive"];
+            console.log((interactiveObject["button_reply"])["title"]);
             // whatsappService.SendMessageWhatsapp(`El usuario dijo : ${text}`, number);
 
             if(text == 'text'){
@@ -66,7 +67,7 @@ const ReceiveMessage = (req, res) => {
 }
 
 
-
+// Obtener el mensale del usuario sea un texto exrito, una interaccion por boton o por una lista.
 const GetTextUser = (messages) => {
     let text = "";
     let typeMessage = messages["type"];
