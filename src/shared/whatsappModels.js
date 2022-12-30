@@ -25,12 +25,13 @@ const MessageTextName = (textResponse, number) => {
             "type": "text",
             "text": {
                 "preview_url": false,
-                "name": true,
                 "body": textResponse
             }
         }
     );
 
+    // const name = true;
+    // return [data, name];
     return data;
 }
 

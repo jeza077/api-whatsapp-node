@@ -5,6 +5,8 @@ const templatesMessages = require('../shared/templateMessages');
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUser);
+    const name2 = false;
+    const name1 = '';
 
     let models = [];
 
@@ -20,6 +22,12 @@ const Process = (textUser, number) => {
         let modelName = whatsappModel.MessageTextName('Por favor, compárteme tu *nombre.* _(Ej: Maria Avelar)_', number);
         models.push(modelName);
 
+        name2 = true;
+
+    } else if(name2 == true){
+        name1 = textFormateado;
+        let model = whatsappModel.MessageText('Excelente, ' + textFormateado, number);
+        models.push(model);
 
     } else {
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
