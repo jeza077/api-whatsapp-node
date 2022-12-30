@@ -56,7 +56,7 @@ const Process = (textUser, number) => {
 
         // console.log(name2 + '---desde ya el nombre');
 
-    } else if(name1 != '' && address1 == true) {
+    } else if(textFormateado != '' && name2 == true && address1 == true) {
         address2 = textUser;
         let model = whatsappModel.MessageText(`Tu dirrección es:, *${address2}.*`, number);
         models.push(model);
