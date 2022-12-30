@@ -10,12 +10,15 @@ const Process = (textUser, number) => {
 
     let models = [];
 
-    if(textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')) {
+    if(textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && name2 == false) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
 
-    } else if(textFormateado.includes('1')) {
+        console.log(name2 + '---desde saludo');
+
+
+    } else if(textFormateado.includes('1') && name2 == false) {
 
         let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
         models.push(model);
@@ -24,10 +27,15 @@ const Process = (textUser, number) => {
 
         name2 = true;
 
-    } else if(name2 == true){
+        console.log(name2 + '---desde peticion nombre');
+
+    } else if(textFormateado && name2 == true){
         name1 = textFormateado;
         let model = whatsappModel.MessageText('Excelente, ' + textFormateado, number);
         models.push(model);
+
+        console.log(name2 + '---desde ya el nombre');
+
 
     } else {
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
