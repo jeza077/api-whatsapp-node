@@ -29,9 +29,9 @@ const Process = (textUser, number) => {
 
         console.log(name2 + '---desde peticion nombre');
 
-    } else if(textFormateado && name2 == true){
+    } else if(textFormateado != '' && name2 == true){
         name1 = textFormateado;
-        let model = whatsappModel.MessageText('Excelente, ' + textFormateado, number);
+        let model = whatsappModel.MessageText('Excelente, ' + name1, number);
         models.push(model);
 
         console.log(name2 + '---desde ya el nombre');
