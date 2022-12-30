@@ -8,15 +8,21 @@ const Process = (textUser, number) => {
 
     let models = [];
 
-    if(textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')){
+    if(textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
-
         models.push(model);
+
+    } else if(textFormateado.includes('1')) {
+
+        let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
+        models.push(model);
+        let modelName = whatsappModel.MessageText('Por favor, compárteme tu *nombre.* _(Ej: Maria Avelar)_', number);
+        models.push(modelName);
+
 
     } else {
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
-
         models.push(model);
     }
 

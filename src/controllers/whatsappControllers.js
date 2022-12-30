@@ -37,8 +37,11 @@ const ReceiveMessage = (req, res) => {
             let number = messages["from"];
             let text = GetTextUser(messages);
             
-            console.log(text);
-            console.log(number);
+            // console.log(text);
+            // console.log(number);
+
+            console.log(messageObject)
+            console.log(messages)
 
             if(text != ""){
                 processMessage.Process(text, number);
