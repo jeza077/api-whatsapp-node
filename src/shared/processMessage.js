@@ -6,8 +6,8 @@ let name2 = false;
 let adress1 = false;
 
 const Process = (textUser, number) => {
-    textUser = textUser.toLowerCase();
-    const textFormateado = quitarAcentos(textUser);
+    const textUserLower = textUser.toLowerCase();
+    const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
     let address2 = '';
     // let name3 = false;
@@ -44,7 +44,7 @@ const Process = (textUser, number) => {
 
         console.log(name2 + '---desde peticion buzon');
 
-    } else if(textFormateado != '' && name2 == true){
+    } else if(textFormateado != '' && name2 == true && address1 == false){
         name1 = textUser;
         let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);
         models.push(model);
