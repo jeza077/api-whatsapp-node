@@ -4,8 +4,8 @@ const templatesMessages = require('../shared/templateMessages');
 
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
-    quitarAcentos(textUser);
-    
+    removeAccents(textUser);
+
     let models = [];
 
     if(textUser.includes('hola')|| textUser.includes('buenos dias') || textUser.includes('buenas tardes') || textUser.includes('buenas noches')){
@@ -34,6 +34,9 @@ const quitarAcentos = (cadena) => {
 	return cadena.split('').map( letra => acentos[letra] || letra).join('').toString();	
 }
 
+const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  } 
 
 module.exports = {
     Process
