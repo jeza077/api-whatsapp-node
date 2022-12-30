@@ -4,11 +4,11 @@ const templatesMessages = require('../shared/templateMessages');
 
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
-    removeAccents(textUser);
+    const textFormateado = removeAccents(textUser);
 
     let models = [];
 
-    if(textUser.includes('hola')|| textUser.includes('buenos dias') || textUser.includes('buenas tardes') || textUser.includes('buenas noches')){
+    if(textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')){
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
 
