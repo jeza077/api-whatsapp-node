@@ -4,6 +4,8 @@ const templatesMessages = require('../shared/templateMessages');
 
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
+    quitarAcentos(textUser);
+    
     let models = [];
 
     if(textUser.includes('hola')|| textUser.includes('buenos dias') || textUser.includes('buenas tardes') || textUser.includes('buenas noches')){
@@ -26,6 +28,11 @@ const Process = (textUser, number) => {
         
 }
 
+
+const quitarAcentos = (cadena) => {
+	const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'};
+	return cadena.split('').map( letra => acentos[letra] || letra).join('').toString();	
+}
 
 
 module.exports = {
