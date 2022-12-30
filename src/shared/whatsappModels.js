@@ -36,5 +36,6 @@ const MessageTextName = (textResponse, number) => {
 
 
 module.exports = {
-    MessageText
+    MessageText,
+    MessageTextName
 }
