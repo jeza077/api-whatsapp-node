@@ -5,8 +5,8 @@ const templatesMessages = require('../shared/templateMessages');
 const Process = (textUser, number) => {
     textUser = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUser);
-    const name2 = false;
-    const name1 = '';
+    let name2 = false;
+    let name1 = '';
 
     let models = [];
 
