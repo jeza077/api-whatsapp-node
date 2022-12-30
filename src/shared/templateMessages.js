@@ -6,6 +6,8 @@ const SaludoBienvenida = () => {
                 '\n\n 1⃣ **Hacer un pedido a domicilio** 🛵'+
                 '\n\n 2⃣ Hacer alguna sugerencia 📨'
 
+    return data;
+
 }
 
 
