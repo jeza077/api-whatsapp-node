@@ -1,7 +1,7 @@
 const fs = require('fs');
 const myConsole = new console.Console(fs.createWriteStream("./logs.text"));
-const whatsappService = require('../services/whatsappService');
-const samples = require('../shared/sampleModels');
+const processMessage = require('../shared/processMessage');
+
 
 const VerifyToken = (req, res) => {
 
@@ -39,18 +39,10 @@ const ReceiveMessage = (req, res) => {
             
             // console.log(text);
             // console.log(number);
-            let interactiveObject = messages["interactive"];
-            console.log((interactiveObject["button_reply"])["title"]);
-            // whatsappService.SendMessageWhatsapp(`El usuario dijo : ${text}`, number);
 
-            if(text == 'text'){
-                let data = samples.SampleText('Hola usuario, soy un ChatBot', number);
-                whatsappService.SendMessageWhatsapp(data);
-
-            } else if(text == 'button'){
-                let data = samples.SampleButtons(number);
-                whatsappService.SendMessageWhatsapp(data);    
-            }
+            if(text != ""){
+                processMessage.Process(text, number);
+            } 
         }
         
         
