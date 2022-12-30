@@ -3,7 +3,7 @@ const whatsappService = require('../services/whatsappService');
 const templatesMessages = require('../shared/templateMessages');
 
 let name2 = false;
-let adress1 = false;
+let address1 = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
