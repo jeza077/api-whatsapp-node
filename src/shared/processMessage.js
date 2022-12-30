@@ -13,9 +13,9 @@ const Process = (textUser, number) => {
         models.push(model);
 
     } else {
-        let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
 
+        models.push(model);
     }
 
 
