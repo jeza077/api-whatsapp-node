@@ -8,11 +8,9 @@ const pool = mysql.createPool({
     user: process.env.DBUSER,
     password: process.env.DBPASS,
     database: process.env.DATABASE,
-    dialectOptions: {
-        ssl: {
-          rejectUnauthorized: true,
-        },
-      },
+    ssl: {
+        rejectUnauthorized: false,
+    }
 })
 
 function insertPool(data, callback) {
