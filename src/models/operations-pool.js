@@ -1,14 +1,14 @@
 const mysql = require('mysql');
-const pool = require('../../conn');
+// const pool = require('../../conn');
 
 // const poolConnection = pool;
 
-// const pool = mysql.createPool({
-//     host: process.env.DBHOST,
-//     user: process.env.DBUSER,
-//     password: process.env.DBPASS,
-//     database: process.env.DATABASE
-// })
+const pool = mysql.createPool({
+    host: process.env.DBHOST,
+    user: process.env.DBUSER,
+    password: process.env.DBPASS,
+    database: process.env.DATABASE
+})
 
 function insertPool(data, callback) {
     let insertQuery = "INSERT INTO clients (phone_number, name, last_name, lat, log) VALUES(?, ?, ?, ?, ?)";
