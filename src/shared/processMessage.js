@@ -2,6 +2,9 @@ const whatsappModel = require('../shared/whatsappModels');
 const whatsappService = require('../services/whatsappService');
 const templatesMessages = require('../shared/templateMessages');
 
+const {insertPool} = require('../models/operations-pool');
+const res = require('express/lib/response');
+
 let name2 = false;
 let address1 = false;
 
@@ -45,6 +48,18 @@ const Process = (textUser, number) => {
         console.log(name2 + '---desde peticion buzon');
 
     } else if(textFormateado != '' && name2 == true && address1 == false){
+        insertPool(
+            {
+                phone_number: '50431415039',
+                name: 'Jesús',
+                last_name: 'Jesús',
+                lat: '14.135184288025',
+                log: '-87.054298400879'
+            },
+            (result) => {
+                res.json(result)
+            }
+        )
         name1 = textUser;
         let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);
         models.push(model);
