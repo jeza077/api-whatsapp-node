@@ -5,55 +5,66 @@ const templatesMessages = require('../shared/templateMessages');
 const {insertPool} = require('../models/operations-pool');
 const res = require('express/lib/response');
 
-let name2 = false;
-let address1 = false;
+let statusName2 = false;
+let statusAddress = false;
+let statusGlobal = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
-    let address2 = '';
+    let addressEscrita = '';
     // let name3 = false;
 
 
     let models = [];
   
-    console.log(textFormateado);
-    return;
-    if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && name2 == false) {
+    // console.log(textFormateado);
+    // return;
+    if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
 
-        console.log(name2 + '---desde saludo');
+        statusGlobal = true;
+
+        console.log(statusName2 + '---desde saludo');
 
 
-    } else if(textFormateado != '' && textFormateado.includes('1') && name2 == false) {
+    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('1') && statusName2 == false) {
 
         let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
         models.push(model);
         let modelName = whatsappModel.MessageTextName('Por favor, compárteme tu *nombre.* _(Ej: Maria Avelar)_', number);
         models.push(modelName);
 
-        name2 = true;
+        statusName2 = true;
 
-        console.log(name2 + '---desde peticion nombre');
+        console.log(statusName2 + '---desde peticion nombre');
 
-    } else if(textFormateado != '' && textFormateado.includes('2')) {
+    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('2')) {
 
         let model = whatsappModel.MessageText('Por ahora solo esta la opcion numero 1 disponible. Por favor selecciona la opcion disponible😀.', number);
         models.push(model);
 
-        // name2 = true;
+        // statusName2 = true;
 
-        console.log(name2 + '---desde peticion buzon');
+        console.log(statusName2 + '---desde peticion buzon');
 
-    } else if(textFormateado != '' && name2 == true && address1 == false){
+    } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
+
+        //Generar random para guardar numeros distintos
+        let random = Math.random();
+        random = random * 99 + 1;
+        random = Math.trunc(random); //Eliminar decimales
+        // console.log(random);
+
+        //Guardar datos de cliente
         insertPool(
             {
-                phone_number: '50431415039',
-                name: 'Jesús',
-                last_name: 'Jesús',
+                phone_number: `504314150${random}`,
+                name: name1,
+                last_name: 'Amador',
                 lat: '14.135184288025',
                 log: '-87.054298400879'
             },
@@ -68,13 +79,13 @@ const Process = (textUser, number) => {
         let modelDireccion = whatsappModel.MessageText(`Por favor, envíame tu dirección completa en una sola linea`, number);
         models.push(modelDireccion);
 
-        address1 = true;
+        statusAddress = true;
 
-        // console.log(name2 + '---desde ya el nombre');
+        // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(textFormateado != '' && name2 == true && address1 == true) {
-        address2 = textUser;
-        let model = whatsappModel.MessageText(`Tu dirrección es:, *${address2}.*`, number);
+    } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
+        addressEscrita = textUser;
+        let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         models.push(model);
 
     } else {
@@ -87,7 +98,7 @@ const Process = (textUser, number) => {
         whatsappService.SendMessageWhatsapp(model);    
     });
 
-    // if(name2 == true) {
+    // if(statusName2 == true) {
     //     name3 = true;
     // }
 
