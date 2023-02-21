@@ -18,7 +18,8 @@ const Process = (textUser, number) => {
 
     let models = [];
   
-
+    console.log(textFormateado);
+    return;
     if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && name2 == false) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
