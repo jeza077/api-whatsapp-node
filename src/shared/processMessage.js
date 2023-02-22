@@ -42,7 +42,7 @@ const Process = (textUser, number) => {
 
         console.log(statusName2 + '---desde peticion nombre');
 
-    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('2')) {
+    } else if(statusGlobal == false && textFormateado != '' && textFormateado.includes('2')) {
 
         let model = whatsappModel.MessageText('Por ahora solo esta la opcion numero 1 disponible. Por favor selecciona la opcion disponible😀.', number);
         models.push(model);
