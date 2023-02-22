@@ -75,7 +75,7 @@ const GetTextUser = (messages) => {
         let typeInteractive = interactiveObject["type"];
 
         if(typeInteractive == "button_reply"){
-            text = (interactiveObject["button_reply"])["title"];
+            text = (interactiveObject["button_reply"])["id"];
 
         } else if(typeInteractive == "list_reply"){
             text = (interactiveObject["list_reply"])["title"];

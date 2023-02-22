@@ -128,6 +128,12 @@ const Process = (textUser, number) => {
         console.log(textFormateado)
 
 
+    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idButtonSiContinuar')) {
+
+        let modelDireccionMaps = whatsappModel.MessageText(`Compárteme tu ubicación para encontrar un restaurante cerca de ti.🔍`, number);
+        models.push(modelDireccionMaps);
+        console.log('mapssss')
+
     } else {
         console.log('global: desde error final-- ' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
