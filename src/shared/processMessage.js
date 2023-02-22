@@ -53,11 +53,14 @@ const Process = (textUser, number) => {
 
     } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
 
+        name1 = textUser;
+
         //Generar random para guardar numeros distintos
         let random = Math.random();
         random = random * 99 + 1;
         random = Math.trunc(random); //Eliminar decimales
         // console.log(random);
+
 
         //Guardar datos de cliente
         insertPool(
@@ -72,7 +75,7 @@ const Process = (textUser, number) => {
                 res.json(result)
             }
         )
-        name1 = textUser;
+
         let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);
         models.push(model);
 
@@ -85,7 +88,9 @@ const Process = (textUser, number) => {
 
     } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
-        let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
+        // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
+        const buttOpt = null;
+        let model = whatsappModel.ButtonMessage(`Tu pedido sera entregado en:, *${addressEscrita}.*`, buttOpt, number);
         models.push(model);
 
     } else {

@@ -36,7 +36,46 @@ const MessageTextName = (textResponse, number) => {
 }
 
 
+const ButtonMessage = (textResponse, buttonOptions, number) => {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": textResponse
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "idButton1",
+                                "title": "Sí"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "idButton2",
+                                "title": "No"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    );
+
+    return data;
+}
+
+
 module.exports = {
     MessageText,
-    MessageTextName
+    MessageTextName,
+    ButtonMessage
 }
