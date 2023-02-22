@@ -122,7 +122,9 @@ const Process = (textUser, number) => {
         
         let model = whatsappModel.ButtonMessage(data, buttOpt, number);
         models.push(model);
-        // console.log('global: desde direccion validada ' + statusGlobal);
+        console.log('global: desde direccion validada ' + statusGlobal);
+        console.log('statusName2 ' + statusName2);
+        console.log('statusAddress' + statusAddress);
 
 
     } else {
