@@ -5,13 +5,11 @@ const templatesMessages = require('../shared/templateMessages');
 const {insertPool} = require('../models/operations-pool');
 const res = require('express/lib/response');
 
-
+let statusName2 = false;
+let statusAddress = false;
+let statusGlobal = false;
 
 const Process = (textUser, number) => {
-    let statusName2 = false;
-    let statusAddress = false;
-    let statusGlobal = false;
-    let statusDirection = true;
     const textUserLower = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
@@ -29,7 +27,6 @@ const Process = (textUser, number) => {
         models.push(model);
 
         statusGlobal = true;
-        statusDirection = false;
         console.log(statusGlobal);
 
         console.log(statusName2 + '---desde saludo');
@@ -44,7 +41,6 @@ const Process = (textUser, number) => {
 
         statusName2 = true;
         statusGlobal = true;
-        statusDirection = false;
 
 
         console.log(statusGlobal);
@@ -95,22 +91,19 @@ const Process = (textUser, number) => {
 
         statusAddress = true;
         statusGlobal = true;
-        statusDirection = false;
-
 
         console.log(statusGlobal);
 
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(statusDirection == true && textFormateado != '') {
+    } else if(statusGlobal == false && textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
         let model = whatsappModel.ButtonMessage(`Tu pedido sera entregado en:, *${addressEscrita}.*`, buttOpt, number);
         models.push(model);
         console.log('global: desde direccion validada ' + statusGlobal);
-        console.log('direction: ' + statusDirection)
 
 
     } else {
