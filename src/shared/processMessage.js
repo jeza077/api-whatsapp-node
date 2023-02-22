@@ -57,7 +57,7 @@ const Process = (textUser, number) => {
 
     } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == false){
 
-        name1 = textUser;
+        // name1 = textUser;
 
         //Generar random para guardar numeros distintos
         let random = Math.random();
@@ -98,13 +98,13 @@ const Process = (textUser, number) => {
         const buttOpt = null;
         let model = whatsappModel.ButtonMessage(`Tu pedido sera entregado en:, *${addressEscrita}.*`, buttOpt, number);
         models.push(model);
-        console.log(statusGlobal);
+        console.log('global: desde error' + statusGlobal);
 
 
     } else {
+        console.log('global: desde error' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
         models.push(model);
-        console.log(statusGlobal);
 
     }
 
