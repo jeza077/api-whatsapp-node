@@ -51,7 +51,7 @@ const Process = (textUser, number) => {
 
         console.log(statusName2 + '---desde peticion buzon');
 
-    } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
+    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == false){
 
         name1 = textUser;
 
@@ -86,7 +86,7 @@ const Process = (textUser, number) => {
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
+    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
