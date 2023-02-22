@@ -8,6 +8,7 @@ const res = require('express/lib/response');
 let statusName2 = false;
 let statusAddress = false;
 let statusGlobal = false;
+let statusDirection = true;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
@@ -27,6 +28,7 @@ const Process = (textUser, number) => {
         models.push(model);
 
         statusGlobal = true;
+        statusDirection = false;
         console.log(statusGlobal);
 
         console.log(statusName2 + '---desde saludo');
@@ -41,6 +43,7 @@ const Process = (textUser, number) => {
 
         statusName2 = true;
         statusGlobal = true;
+        statusDirection = false;
 
 
         console.log(statusGlobal);
@@ -91,13 +94,15 @@ const Process = (textUser, number) => {
 
         statusAddress = true;
         statusGlobal = true;
+        statusDirection = false;
+
 
         console.log(statusGlobal);
 
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
+    } else if(statu == true && textFormateado != '') {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
