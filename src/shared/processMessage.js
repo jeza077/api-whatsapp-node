@@ -132,7 +132,7 @@ const Process = (textUser, number) => {
         console.log('en miniscula: ' + textFormateado.includes('idbuttonsicontinuar'))
 
 
-    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && statusMaps == true) {
+    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idbuttonsicontinuar') && statusMaps == true) {
 
         let modelDireccionMaps = whatsappModel.MessageText(`Compárteme tu ubicación para encontrar un restaurante cerca de ti.🔍`, number);
         models.push(modelDireccionMaps);
