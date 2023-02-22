@@ -77,10 +77,10 @@ const Process = (textUser, number) => {
                 last_name: 'Amador',
                 lat: '14.135184288025',
                 log: '-87.054298400879'
-            },
-            (result) => {
-                res.json(result)
             }
+            // (result) => {
+            //     res.json(result)
+            // }
         )
 
         let model = whatsappModel.MessageText(`Excelente, *${name1}.*`, number);

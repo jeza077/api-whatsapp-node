@@ -13,7 +13,7 @@ const pool = mysql.createPool({
     }
 })
 
-function insertPool(data, callback) {
+function insertPool(data) {
     let insertQuery = "INSERT INTO clients (phone_number, name, last_name, lat, log) VALUES(?, ?, ?, ?, ?)";
     let query = mysql.format(insertQuery, [data.phone_number, data.name, data.last_name, data.lat, data.log]);
 
@@ -21,7 +21,7 @@ function insertPool(data, callback) {
         if (err) throw err;
         connection.query(query, function(err, result) {
             if (err) throw err;
-            callback(result);
+            // callback(result);
 
             connection.release();
         })
