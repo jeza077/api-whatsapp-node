@@ -97,7 +97,7 @@ const Process = (textUser, number) => {
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(statusGlobal == false && textFormateado != '' && statusName2 == true && statusAddress == true) {
+    } else if(statusGlobal == false && textFormateado != '' && statusName2 == false && statusAddress == false) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
