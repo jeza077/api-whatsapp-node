@@ -125,10 +125,11 @@ const Process = (textUser, number) => {
         console.log('global: desde direccion validada ' + statusGlobal);
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
-        console.log(textFormateado)
+        console.log('en mayuscula: ' + textFormateado == 'idButtonSiContinuar')
+        console.log('en minuscula: ' + textFormateado == 'idbuttonsicontinuar')
 
 
-    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idButtonSiContinuar')) {
+    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idbuttonsicontinuar')) {
 
         let modelDireccionMaps = whatsappModel.MessageText(`Compárteme tu ubicación para encontrar un restaurante cerca de ti.🔍`, number);
         models.push(modelDireccionMaps);
