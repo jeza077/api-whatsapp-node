@@ -125,6 +125,7 @@ const Process = (textUser, number) => {
         console.log('global: desde direccion validada ' + statusGlobal);
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
+        console.log(textFormateado)
 
 
     } else {
