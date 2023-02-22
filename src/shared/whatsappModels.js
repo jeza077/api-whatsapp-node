@@ -49,22 +49,7 @@ const ButtonMessage = (textResponse, buttonOptions, number) => {
                     "text": textResponse
                 },
                 "action": {
-                    "buttons": [
-                        {
-                            "type": "reply",
-                            "reply": {
-                                "id": "idButton1",
-                                "title": "Sí"
-                            }
-                        },
-                        {
-                            "type": "reply",
-                            "reply": {
-                                "id": "idButton2",
-                                "title": "No"
-                            }
-                        }
-                    ]
+                    "buttons": buttonOptions
                 }
             }
         }

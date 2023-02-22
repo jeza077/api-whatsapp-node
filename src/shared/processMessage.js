@@ -100,8 +100,24 @@ const Process = (textUser, number) => {
     } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
-        const buttOpt = null;
-        const data = `Tu pedido sera entregado en:, *${addressEscrita}.* \n` + 
+        const buttOpt = [
+            {
+                "type": "reply",
+                "reply": {
+                    "id": "idButtonSiContinuar",
+                    "title": "Sí"
+                }
+            },
+            {
+                "type": "reply",
+                "reply": {
+                    "id": "idButtonNoContinuar",
+                    "title": "No"
+                }
+            }
+        ]
+        
+        const data = `Tu pedido sera entregado en:, *${addressEscrita}.* \n\n` + 
                      '¿Continuamos?';
         
         let model = whatsappModel.ButtonMessage(data, buttOpt, number);
