@@ -101,7 +101,10 @@ const Process = (textUser, number) => {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
-        let model = whatsappModel.ButtonMessage(`Tu pedido sera entregado en:, *${addressEscrita}.*`, buttOpt, number);
+        const data = `Tu pedido sera entregado en:, *${addressEscrita}.* \n` + 
+                     '¿Continuamos?';
+        
+        let model = whatsappModel.ButtonMessage(data, buttOpt, number);
         models.push(model);
         // console.log('global: desde direccion validada ' + statusGlobal);
 
