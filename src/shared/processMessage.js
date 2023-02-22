@@ -7,7 +7,7 @@ const res = require('express/lib/response');
 
 let statusName2 = false;
 let statusAddress = false;
-let statusGlobal = false;
+// let statusGlobal = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
@@ -32,7 +32,7 @@ const Process = (textUser, number) => {
         console.log(statusName2 + '---desde saludo');
 
 
-    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('1') && statusName2 == false) {
+    } else if(textFormateado != '' && textFormateado.includes('1') && statusName2 == false) {
 
         let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
         models.push(model);
@@ -46,7 +46,7 @@ const Process = (textUser, number) => {
         console.log(statusGlobal);
         console.log(statusName2 + '---desde peticion nombre');
 
-    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('2')) {
+    } else if(textFormateado != '' && textFormateado.includes('2')) {
 
         let model = whatsappModel.MessageText('Por ahora solo esta la opcion numero 1 disponible. Por favor selecciona la opcion disponible😀.', number);
         models.push(model);
@@ -57,7 +57,7 @@ const Process = (textUser, number) => {
         console.log(statusGlobal);
 
 
-    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == false){
+    } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
 
         name1 = textUser;
         console.log(name1);
@@ -97,7 +97,7 @@ const Process = (textUser, number) => {
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(statusGlobal == false && textFormateado != '' && statusName2 == false && statusAddress == false) {
+    } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = null;
