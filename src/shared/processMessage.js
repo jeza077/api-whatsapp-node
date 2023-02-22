@@ -8,6 +8,7 @@ const res = require('express/lib/response');
 let statusName2 = false;
 let statusAddress = false;
 let statusGlobal = false;
+let statusMaps = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
@@ -97,7 +98,7 @@ const Process = (textUser, number) => {
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true) {
+    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && statusMaps == false) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = [
@@ -122,6 +123,7 @@ const Process = (textUser, number) => {
         
         let model = whatsappModel.ButtonMessage(data, buttOpt, number);
         models.push(model);
+        statusMaps = true;
         console.log('global: desde direccion validada ' + statusGlobal);
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
@@ -130,10 +132,7 @@ const Process = (textUser, number) => {
         console.log('en miniscula: ' + textFormateado.includes('idbuttonsicontinuar'))
 
 
-
-
-
-    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idbuttonsicontinuar')) {
+    } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && statusMaps == true) {
 
         let modelDireccionMaps = whatsappModel.MessageText(`Compárteme tu ubicación para encontrar un restaurante cerca de ti.🔍`, number);
         models.push(modelDireccionMaps);
