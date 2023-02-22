@@ -7,7 +7,7 @@ const res = require('express/lib/response');
 
 let statusName2 = false;
 let statusAddress = false;
-// let statusGlobal = false;
+let statusGlobal = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
@@ -26,13 +26,13 @@ const Process = (textUser, number) => {
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
 
-        // statusGlobal = true;
+        statusGlobal = true;
         // console.log(statusGlobal);
 
         console.log(statusName2 + '---desde saludo');
 
 
-    } else if(textFormateado != '' && textFormateado.includes('1') && statusName2 == false) {
+    } else if(statusGlobal == true && textFormateado != '' && textFormateado.includes('1') && statusName2 == false) {
 
         let model = whatsappModel.MessageText('Necesito validar tu nombre para la entrega de tu orden.', number);
         models.push(model);
@@ -57,7 +57,7 @@ const Process = (textUser, number) => {
         // console.log(statusGlobal);
 
 
-    } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
+    } else if(statusGlobal == true &&  textFormateado != '' && statusName2 == true && statusAddress == false){
 
         name1 = textUser;
         console.log(name1);
@@ -97,7 +97,7 @@ const Process = (textUser, number) => {
 
         // console.log(statusName2 + '---desde ya el nombre');
 
-    } else if(textFormateado != '' && statusName2 == true && statusAddress == true) {
+    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true) {
         addressEscrita = textUser;
         // let model = whatsappModel.MessageText(`Tu pedido sera entregado en:, *${addressEscrita}.*`, number);
         const buttOpt = [
