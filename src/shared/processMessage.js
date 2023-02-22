@@ -125,8 +125,12 @@ const Process = (textUser, number) => {
         console.log('global: desde direccion validada ' + statusGlobal);
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
-        console.log('en mayuscula: ' + textFormateado == 'idButtonSiContinuar')
-        console.log('en minuscula: ' + textFormateado == 'idbuttonsicontinuar')
+        
+        console.log('en mayuscula: ' + textFormateado === 'idButtonSiContinuar')
+        console.log('en minuscula: ' + textFormateado === 'idbuttonsicontinuar')
+        console.log('en mayuscula: ' + textFormateado === idButtonSiContinuar)
+        console.log('en minuscula: ' + textFormateado === idbuttonsicontinuar)
+
 
 
     } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idbuttonsicontinuar')) {
