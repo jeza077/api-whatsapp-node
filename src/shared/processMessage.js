@@ -27,7 +27,7 @@ const Process = (textUser, number) => {
         models.push(model);
 
         statusGlobal = true;
-        // console.log(statusGlobal);
+        console.log(statusGlobal);
 
         console.log(statusName2 + '---desde saludo');
 
@@ -128,7 +128,7 @@ const Process = (textUser, number) => {
 
 
     } else {
-        // console.log('global: desde error final-- ' + statusGlobal);
+        console.log('global: desde error final-- ' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
         models.push(model);
 
