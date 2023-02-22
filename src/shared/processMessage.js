@@ -126,10 +126,10 @@ const Process = (textUser, number) => {
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
         
-        console.log('en mayuscula: ' + textFormateado === 'idButtonSiContinuar')
-        console.log('en minuscula: ' + textFormateado === 'idbuttonsicontinuar')
-        console.log('en mayuscula: ' + textFormateado === idButtonSiContinuar)
-        console.log('en minuscula: ' + textFormateado === idbuttonsicontinuar)
+        console.log('en mayuscula: ' + textFormateado.includes('idButtonSiContinuar'))
+        console.log('en miniscula: ' + textFormateado.includes('idbuttonsicontinuar'))
+
+
 
 
 
