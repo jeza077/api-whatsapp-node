@@ -60,6 +60,7 @@ const Process = (textUser, number) => {
     } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == false){
 
         name1 = textUser;
+        console.log(name1);
 
         //Generar random para guardar numeros distintos
         let random = Math.random();
@@ -106,7 +107,7 @@ const Process = (textUser, number) => {
 
 
     } else {
-        console.log('global: desde error ' + statusGlobal);
+        console.log('global: desde error final-- ' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
         models.push(model);
 
