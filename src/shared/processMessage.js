@@ -5,12 +5,13 @@ const templatesMessages = require('../shared/templateMessages');
 const {insertPool} = require('../models/operations-pool');
 const res = require('express/lib/response');
 
-let statusName2 = false;
-let statusAddress = false;
-let statusGlobal = false;
-let statusDirection = true;
+
 
 const Process = (textUser, number) => {
+    let statusName2 = false;
+    let statusAddress = false;
+    let statusGlobal = false;
+    let statusDirection = true;
     const textUserLower = textUser.toLowerCase();
     const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
