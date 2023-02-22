@@ -26,8 +26,8 @@ const Process = (textUser, number) => {
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
 
-        statusGlobal = true;
-        console.log(statusGlobal);
+        // statusGlobal = true;
+        // console.log(statusGlobal);
 
         console.log(statusName2 + '---desde saludo');
 
@@ -40,10 +40,10 @@ const Process = (textUser, number) => {
         models.push(modelName);
 
         statusName2 = true;
-        statusGlobal = true;
+        // statusGlobal = true;
 
 
-        console.log(statusGlobal);
+        // console.log(statusGlobal);
         console.log(statusName2 + '---desde peticion nombre');
 
     } else if(textFormateado != '' && textFormateado.includes('2')) {
@@ -54,7 +54,7 @@ const Process = (textUser, number) => {
         // statusName2 = true;
 
         console.log(statusName2 + '---desde peticion buzon');
-        console.log(statusGlobal);
+        // console.log(statusGlobal);
 
 
     } else if(textFormateado != '' && statusName2 == true && statusAddress == false){
@@ -90,9 +90,9 @@ const Process = (textUser, number) => {
         models.push(modelDireccion);
 
         statusAddress = true;
-        statusGlobal = true;
+        // statusGlobal = true;
 
-        console.log(statusGlobal);
+        // console.log(statusGlobal);
 
 
         // console.log(statusName2 + '---desde ya el nombre');
@@ -103,11 +103,11 @@ const Process = (textUser, number) => {
         const buttOpt = null;
         let model = whatsappModel.ButtonMessage(`Tu pedido sera entregado en:, *${addressEscrita}.*`, buttOpt, number);
         models.push(model);
-        console.log('global: desde direccion validada ' + statusGlobal);
+        // console.log('global: desde direccion validada ' + statusGlobal);
 
 
     } else {
-        console.log('global: desde error final-- ' + statusGlobal);
+        // console.log('global: desde error final-- ' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
         models.push(model);
 
