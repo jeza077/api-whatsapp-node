@@ -16,6 +16,8 @@ const Process = (textUser, number) => {
     if (typeof textUser !== "string"){
         textUserLower = textUser.toLowerCase();
         console.log('textUserLower: ' + textUserLower);
+    } else {
+        textUserLower = textUser;
     }
     const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
