@@ -34,10 +34,10 @@ const Process = (textUser, number) => {
 
     let models = [];
 
-    console.log('textUser: ' + textUser);
-    console.log('textFormateado: ' + textFormateado);
+    // console.log('textUser: ' + textUser);
+    // console.log('textFormateado: ' + textFormateado);
     // return;
-    if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
+    if(statusGlobal == false && textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
@@ -168,6 +168,10 @@ const Process = (textUser, number) => {
 
     } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && statusLocation == true) {
 
+        console.log('global: desde loc ' + statusGlobal);
+        console.log('statusName2Loc ' + statusName2);
+        console.log('statusAddressLoc ' + statusAddress);
+        console.log('statusLocation ' + statusLocation);
         console.log('Estamos desde el location:  ' + textFormateado);
 
     }else {
