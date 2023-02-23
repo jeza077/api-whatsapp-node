@@ -13,7 +13,7 @@ let statusLocation = false;
 
 const Process = (textUser, number) => {
     let textUserLower;
-    if (typeof textUser !== "string"){
+    if (typeof textUser == "string"){
         textUserLower = textUser.toLowerCase();
         console.log('textUserLower: ' + textUserLower);
     } else {
