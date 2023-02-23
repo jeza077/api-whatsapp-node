@@ -68,17 +68,27 @@ const GetTextUser = (messages) => {
     let typeMessage = messages["type"];
 
     if(typeMessage == "text"){
-        text = (messages);
+        
+        const textUserLower = (messages["text"])["body"].toLowerCase();
+        const textFormateado = quitarAcentos(textUserLower);
+        
+        text = textFormateado;
+        // text = (messages["text"]);
 
     } else if(typeMessage == "interactive"){
         let interactiveObject = messages["interactive"];
         let typeInteractive = interactiveObject["type"];
 
         if(typeInteractive == "button_reply"){
-            text = (interactiveObject["button_reply"])["id"];
+            const textUserLowerButt = (interactiveObject["button_reply"])["id"].toLowerCase();
+            const textFormateadoButt = quitarAcentos(textUserLowerButt);
+            // text = (interactiveObject["button_reply"])["id"];
+            text = textFormateadoButt;
 
         } else if(typeInteractive == "list_reply"){
-            text = (interactiveObject["list_reply"])["title"];
+            const textUserLowerList = (interactiveObject["list_reply"])["title"].toLowerCase();
+            const textFormateadoList = quitarAcentos(textUserLowerList);
+            text = textFormateadoList;
 
         } else {
             myConsole.log("Sin mensaje");
@@ -98,6 +108,10 @@ const GetTextUser = (messages) => {
 }
 
 
+const quitarAcentos = (cadena) => {
+	const acentos = {'á':'a','é':'e','í':'i','ó':'o','ú':'u','Á':'A','É':'E','Í':'I','Ó':'O','Ú':'U'};
+	return cadena.split('').map( letra => acentos[letra] || letra).join('').toString();	
+}
 
 
 module.exports = {

@@ -16,6 +16,7 @@ const Process = (textUser, number) => {
     console.log('desde process', textUser);
     console.log('desde process textbody', (textUser['text'])['body']);
     console.log('desde process typeObjet', textUser.text.body);
+    
     /*
     let textUserLower;
     if (typeof textUser == "string"){
@@ -183,8 +184,8 @@ const Process = (textUser, number) => {
     // if(statusName2 == true) {
     //     name3 = true;
     // }
-
-        */
+*/
+        
 }
 
 
