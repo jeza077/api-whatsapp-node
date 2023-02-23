@@ -12,7 +12,10 @@ let statusMaps = false;
 let statusLocation = false;
 
 const Process = (textUser, number) => {
-    const textUserLower = textUser.toLowerCase();
+    if (typeof textUser !== "string"){
+        const textUserLower = textUser.toLowerCase();
+        console.log('textUserLower: ' + textUserLower);
+    }
     const textFormateado = quitarAcentos(textUserLower);
     let name1 = '';
     let addressEscrita = '';
@@ -20,8 +23,9 @@ const Process = (textUser, number) => {
 
 
     let models = [];
-  
-    // console.log(textFormateado);
+
+    console.log('textUser: ' + textUser);
+    console.log('textFormateado: ' + textFormateado);
     // return;
     if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
         let template = templatesMessages.SaludoBienvenida();
