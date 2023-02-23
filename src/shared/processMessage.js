@@ -133,9 +133,16 @@ const Process = (textUser, number) => {
 
 
     } else if (statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && textFormateado.includes('idbuttonsicontinuar') && statusMaps == true) {
-
+        
         let modelDireccionMaps = whatsappModel.MessageText(`Compárteme tu ubicación para encontrar un restaurante cerca de ti.🔍`, number);
         models.push(modelDireccionMaps);
+        const data = '*Recuerda* que solo puedes compartir tu ubicación desde el celular. 📲 \n' +
+                     'Para *IOS* ingresa a la sección con el signo ➕ \n' +
+                     'Para *Android* ingresa a la sección con el icono 📎';
+                     
+        let modelDireccionMaps2 = whatsappModel.MessageImage(data, number);
+        models.push(modelDireccionMaps2);
+
         console.log('mapssss')
 
     } else {
