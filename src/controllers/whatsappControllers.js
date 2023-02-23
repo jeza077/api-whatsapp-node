@@ -33,7 +33,7 @@ const ReceiveMessage = (req, res) => {
         let messageObject = value["messages"];
 
         if(typeof messageObject != "undefined"){
-            let messages = messageObject[0];
+            let messages = messageObject;
             let number = messages["from"];
             let text = GetTextUser(messages);
             
