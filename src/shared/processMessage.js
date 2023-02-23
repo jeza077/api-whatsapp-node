@@ -12,8 +12,9 @@ let statusMaps = false;
 let statusLocation = false;
 
 const Process = (textUser, number) => {
+    let textUserLower;
     if (typeof textUser !== "string"){
-        const textUserLower = textUser.toLowerCase();
+        textUserLower = textUser.toLowerCase();
         console.log('textUserLower: ' + textUserLower);
     }
     const textFormateado = quitarAcentos(textUserLower);
