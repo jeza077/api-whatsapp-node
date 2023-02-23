@@ -9,6 +9,7 @@ let statusName2 = false;
 let statusAddress = false;
 let statusGlobal = false;
 let statusMaps = false;
+let statusLocation = false;
 
 const Process = (textUser, number) => {
     const textUserLower = textUser.toLowerCase();
@@ -144,12 +145,18 @@ const Process = (textUser, number) => {
                      
         let modelDireccionMaps2 = whatsappModel.MessageImage(data, number);
         models.push(modelDireccionMaps2);
-        
+
+        statusLocation = true;
         statusGlobal = true;
 
-        console.log('mapssss')
+        console.log('mapssss');
+        
 
-    } else {
+    } else if(statusGlobal == true && textFormateado != '' && statusName2 == true && statusAddress == true && statusLocation == true) {
+
+        console.log('Estamos desde el location:  ' + textFormateado);
+
+    }else {
         console.log('global: desde error final-- ' + statusGlobal);
         let model = whatsappModel.MessageText('No entiendo lo que tratas de decir. Por favor, ingresa una opcion valida.', number);
         models.push(model);
