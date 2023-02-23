@@ -35,7 +35,7 @@ const ReceiveMessage = (req, res) => {
         if(typeof messageObject != "undefined"){
             let messages = messageObject[0];
             let number = messages["from"];
-            let text = GetTextUser(messageObject);
+            let text = GetTextUser(messages);
             
             // console.log(text);
             // console.log(number);
@@ -68,7 +68,8 @@ const GetTextUser = (messages) => {
     let typeMessage = messages["type"];
 
     if(typeMessage == "text"){
-        text = (messages["text"])["body"];
+        // text = (messages["text"])["body"];
+        text = (messages);
 
     } else if(typeMessage == "interactive"){
         let interactiveObject = messages["interactive"];
@@ -87,7 +88,7 @@ const GetTextUser = (messages) => {
 
     } else if(typeMessage == 'location') {
 
-        text = (messages["location"]);
+        text = (messages);
 
     } else {
         myConsole.log("Sin mensaje");
