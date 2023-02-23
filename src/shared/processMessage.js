@@ -41,7 +41,7 @@ const Process = (textUser, number) => {
         models.push(modelName);
 
         statusName2 = true;
-        // statusGlobal = true;
+        statusGlobal = true;
 
 
         // console.log(statusGlobal);
@@ -91,7 +91,7 @@ const Process = (textUser, number) => {
         models.push(modelDireccion);
 
         statusAddress = true;
-        // statusGlobal = true;
+        statusGlobal = true;
 
         // console.log(statusGlobal);
 
@@ -124,6 +124,8 @@ const Process = (textUser, number) => {
         let model = whatsappModel.ButtonMessage(data, buttOpt, number);
         models.push(model);
         statusMaps = true;
+        statusGlobal = true;
+
         console.log('global: desde direccion validada ' + statusGlobal);
         console.log('statusName2 ' + statusName2);
         console.log('statusAddress' + statusAddress);
@@ -142,6 +144,8 @@ const Process = (textUser, number) => {
                      
         let modelDireccionMaps2 = whatsappModel.MessageImage(data, number);
         models.push(modelDireccionMaps2);
+        
+        statusGlobal = true;
 
         console.log('mapssss')
 
