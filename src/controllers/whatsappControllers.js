@@ -99,7 +99,8 @@ const GetTextUser = (messages) => {
     } else if(typeMessage == 'location') {
 
         // text = JSON.stringify((messages["location"]));
-        text = 'lat:55555 long:787484';
+        // text = `lat: ${messages.location.latitude}, long: ${messages.location.longitude}`;
+        text = [messages.location.latitude, messages.location.longitude];
 
     } else {
         myConsole.log("Sin mensaje");
