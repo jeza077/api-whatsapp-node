@@ -85,6 +85,10 @@ const GetTextUser = (messages) => {
             console.log("sin mesage");
         }
 
+    } else if(typeMessage == 'location') {
+
+        text = (messages["location"]);
+
     } else {
         myConsole.log("Sin mensaje");
         console.log("sin mesage");
