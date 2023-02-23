@@ -14,10 +14,10 @@ const res = require('express/lib/response');
 const Process = (textUser, number) => {
 
     console.log('desde process', textUser);
-    console.log('desde process textbody', (textUser['text'])['body']);
-    console.log('desde process typeObjet', textUser.text.body);
-    
-    /*
+    // console.log('desde process textbody', (textUser['text'])['body']);
+    // console.log('desde process typeObjet', textUser.text.body);
+    const textFormateado = textUser;
+/*
     let textUserLower;
     if (typeof textUser == "string"){
         textUserLower = textUser.toLowerCase();
@@ -26,6 +26,7 @@ const Process = (textUser, number) => {
         textUserLower = textUser;
     }
     const textFormateado = quitarAcentos(textUserLower);
+    */
     let name1 = '';
     let addressEscrita = '';
     // let name3 = false;
@@ -184,7 +185,6 @@ const Process = (textUser, number) => {
     // if(statusName2 == true) {
     //     name3 = true;
     // }
-*/
         
 }
 
