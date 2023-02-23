@@ -68,8 +68,7 @@ const GetTextUser = (messages) => {
     let typeMessage = messages["type"];
 
     if(typeMessage == "text"){
-        // text = (messages["text"])["body"];
-        text = (messages);
+        text = (messages["text"]);
 
     } else if(typeMessage == "interactive"){
         let interactiveObject = messages["interactive"];
@@ -88,7 +87,7 @@ const GetTextUser = (messages) => {
 
     } else if(typeMessage == 'location') {
 
-        text = (messages);
+        text = (messages["location"]);
 
     } else {
         myConsole.log("Sin mensaje");
