@@ -68,7 +68,7 @@ const GetTextUser = (messages) => {
     let typeMessage = messages["type"];
 
     if(typeMessage == "text"){
-        text = (messages["text"]);
+        text = (messages);
 
     } else if(typeMessage == "interactive"){
         let interactiveObject = messages["interactive"];

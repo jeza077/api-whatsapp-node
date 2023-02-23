@@ -14,6 +14,8 @@ const res = require('express/lib/response');
 const Process = (textUser, number) => {
 
     console.log('desde process', textUser);
+    console.log('desde process type', textUser['type']);
+    console.log('desde process type objet', textUser.type);
     /*
     let textUserLower;
     if (typeof textUser == "string"){
