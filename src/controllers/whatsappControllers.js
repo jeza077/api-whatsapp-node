@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { JSON } = require('mysql/lib/protocol/constants/types');
 const myConsole = new console.Console(fs.createWriteStream("./logs.text"));
 const processMessage = require('../shared/processMessage');
 
@@ -97,7 +98,7 @@ const GetTextUser = (messages) => {
 
     } else if(typeMessage == 'location') {
 
-        text = (messages["location"]);
+        text = JSON.stringify((messages["location"]));
 
     } else {
         myConsole.log("Sin mensaje");

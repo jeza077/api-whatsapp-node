@@ -37,7 +37,7 @@ const Process = (textUser, number) => {
     // console.log('textUser: ' + textUser);
     // console.log('textFormateado: ' + textFormateado);
     // return;
-    if(statusLocation == false && textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
+    if(textFormateado != '' && textFormateado.includes('hola')|| textFormateado.includes('buenos dias') || textFormateado.includes('buenas tardes') || textFormateado.includes('buenas noches')  && statusName2 == false) {
         let template = templatesMessages.SaludoBienvenida();
         let model = whatsappModel.MessageText(template, number);
         models.push(model);
