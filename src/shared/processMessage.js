@@ -13,7 +13,7 @@ const res = require('express/lib/response');
 
 const Process = (textUser, number) => {
 
-    console.log(textUser.type);
+    console.log('desde process', textUser);
     /*
     let textUserLower;
     if (typeof textUser == "string"){
