@@ -5,13 +5,16 @@ const templatesMessages = require('../shared/templateMessages');
 const {insertPool} = require('../models/operations-pool');
 const res = require('express/lib/response');
 
-let statusName2 = false;
-let statusAddress = false;
-let statusGlobal = false;
-let statusMaps = false;
-let statusLocation = false;
+// let statusName2 = false;
+// let statusAddress = false;
+// let statusGlobal = false;
+// let statusMaps = false;
+// let statusLocation = false;
 
 const Process = (textUser, number) => {
+
+    console.log(textUser);
+    /*
     let textUserLower;
     if (typeof textUser == "string"){
         textUserLower = textUser.toLowerCase();
@@ -179,7 +182,7 @@ const Process = (textUser, number) => {
     //     name3 = true;
     // }
 
-        
+        */
 }
 
 
