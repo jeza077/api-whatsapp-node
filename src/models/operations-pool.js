@@ -28,17 +28,19 @@ function insertPool(data) {
     });
 }
 
-function selectCoordsStored() {
-
- 
+function selectCoordsStored(callback) {
 
     pool.getConnection(function(err, connection) {
         if (err) throw err;
         connection.query("SELECT * FROM store", function (err, result, fields) {
             if (err) throw err;
-    
-            return result;
+            callback(result);
+
+            
+            connection.release();
+
         });
+
     });
     
 }

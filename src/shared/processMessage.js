@@ -183,7 +183,8 @@ const Process = (textUser, number) => {
         // conn.query("SELECT * FROM store", function (err, result, fields) {
         //   if (err) throw err;
         const selectCoord = selectCoordsStored;
-          console.log(selectCoord);
+          console.log('variable', selectCoord);
+          console.log('sinVar', selectCoordsStored);
         
           // Crear un array con objetos de la latitud y longitud de cada tienda
           const coords = [];
