@@ -173,8 +173,8 @@ const Process = (textUser, number) => {
         console.log('statusAddressLoc ' + statusAddress);
         console.log('statusLocation ' + statusLocation);
         console.log('Estamos desde el location:  ' + textFormateado);
-        console.log('Estamos desde el location lat:  ' + textFormateado[0]);
-        console.log('Estamos desde el location long:  ' + textFormateado[1]);
+        // console.log('Estamos desde el location lat:  ' + textFormateado[0]);
+        // console.log('Estamos desde el location long:  ' + textFormateado[1]);
 
     }else {
         console.log('global: desde error final-- ' + statusGlobal);
