@@ -5,6 +5,8 @@ const templatesMessages = require('../shared/templateMessages');
 const {insertPool, selectCoordsStored} = require('../models/operations-pool');
 const res = require('express/lib/response');
 const mysql = require('mysql');
+const axios = require('axios');
+
 // const pool = require('../../conn');
 
 // const poolConnection = pool;
