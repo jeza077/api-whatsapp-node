@@ -28,9 +28,9 @@ function insertPool(data) {
     });
 }
 
-function selectCoordsStored(callback) {
+function selectCoordsStored() {
 
-    pool.getConnection(function(err, connection) {
+    pool.getConnection(function(err, connection, callback) {
         if (err) throw err;
         connection.query("SELECT * FROM store", function (err, result, fields) {
             if (err) throw err;
@@ -47,5 +47,5 @@ function selectCoordsStored(callback) {
 
 module.exports = {
     insertPool,
-    selectCoordsStored
+    selectCoordsStored,
 }

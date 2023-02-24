@@ -4,6 +4,21 @@ const templatesMessages = require('../shared/templateMessages');
 
 const {insertPool, selectCoordsStored} = require('../models/operations-pool');
 const res = require('express/lib/response');
+const mysql = require('mysql');
+// const pool = require('../../conn');
+
+// const poolConnection = pool;
+
+const pool = mysql.createPool({
+    host: process.env.DBHOST,
+    user: process.env.DBUSER,
+    password: process.env.DBPASS,
+    database: process.env.DATABASE,
+    ssl: {
+        rejectUnauthorized: true,
+    }
+})
+
 
 let statusName2 = false;
 let statusAddress = false;
@@ -180,15 +195,15 @@ const Process = (textUser, number) => {
         const coordLat = textFormateado[0];
         const coordLog = textFormateado[1];
         
-        // conn.query("SELECT * FROM store", function (err, result, fields) {
-        //   if (err) throw err;
-        const selectCoord = selectCoordsStored;
-          console.log('variable', selectCoord);
-          console.log('sinVar', selectCoordsStored);
+        pool.query("SELECT * FROM store", function (err, result, fields) {
+          if (err) throw err;
+        // const selectCoord = selectCoordsStored;
+        //   console.log('variable', selectCoord);
+        //   console.log('sinVar', selectCoordsStored);
         
           // Crear un array con objetos de la latitud y longitud de cada tienda
           const coords = [];
-          selectCoord.forEach(element => {
+          result.forEach(element => {
             // console.log(element)
             coords.push({'lat': element.lat, 'log': element.log, 'id': element.id});
       
@@ -222,7 +237,7 @@ const Process = (textUser, number) => {
             
           })
               
-        // });
+        });
 
     }else {
         console.log('global: desde error final-- ' + statusGlobal);
