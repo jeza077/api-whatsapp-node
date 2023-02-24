@@ -30,10 +30,15 @@ function insertPool(data) {
 
 function selectCoordsStored() {
 
-    pool.query("SELECT * FROM store", function (err, result, fields) {
-        if (err) throw err;
+ 
 
-        return result;
+    pool.getConnection(function(err, connection) {
+        if (err) throw err;
+        connection.query("SELECT * FROM store", function (err, result, fields) {
+            if (err) throw err;
+    
+            return result;
+        });
     });
     
 }
