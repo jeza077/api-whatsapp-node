@@ -28,6 +28,17 @@ function insertPool(data) {
     });
 }
 
+function selectCoordsStored() {
+
+    pool.query("SELECT * FROM store", function (err, result, fields) {
+        if (err) throw err;
+
+        return result;
+    });
+    
+}
+
 module.exports = {
-    insertPool
+    insertPool,
+    selectCoordsStored
 }

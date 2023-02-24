@@ -2,7 +2,7 @@ const whatsappModel = require('../shared/whatsappModels');
 const whatsappService = require('../services/whatsappService');
 const templatesMessages = require('../shared/templateMessages');
 
-const {insertPool} = require('../models/operations-pool');
+const {insertPool, selectCoordsStored} = require('../models/operations-pool');
 const res = require('express/lib/response');
 
 let statusName2 = false;
@@ -175,6 +175,53 @@ const Process = (textUser, number) => {
         console.log('Estamos desde el location:  ' + textFormateado);
         console.log('Estamos desde el location lat:  ' + textFormateado[0]);
         console.log('Estamos desde el location long:  ' + textFormateado[1]);
+
+
+        const coordLat = textFormateado[0];
+        const coordLog = textFormateado[1];
+        
+        // conn.query("SELECT * FROM store", function (err, result, fields) {
+        //   if (err) throw err;
+        const selectCoord = selectCoordsStored;
+          console.log(selectCoord);
+        
+          // Crear un array con objetos de la latitud y longitud de cada tienda
+          const coords = [];
+          selectCoord.forEach(element => {
+            // console.log(element)
+            coords.push({'lat': element.lat, 'log': element.log, 'id': element.id});
+      
+          });
+          // console.log(coords);
+          // return;
+         
+          // Hacer llamado a la API de maps para obtener las distancias entre rutas pasadas por coordenadas
+          const getDistance = async (coord) => {
+            const resp = await axios.get(`https://maps.googleapis.com/maps/api/distancematrix/json?origins=${coordLat}%2C${coordLog}&destinations=${coord.lat}%2C${coord.log}%7C&units=metric&key=${process.env.API_MAPS}&callback`);
+      
+            return {'id': coord.id, 'km': resp.data.rows[0].elements[0].distance.value};
+          };
+          
+          // Iterando la respuesta recibida por MAPS
+          
+          const kmCoord = [];
+          const compareCoord = Promise.all(coords.map(getDistance))
+          .then(kmDistance => {
+            kmDistance.map(res => {
+              // console.log(res)
+              kmCoord.push(res.km)
+              
+            })
+            console.log(kmCoord)
+            const minCoord = Math.min(...kmCoord);
+            console.log('minCoord', minCoord)
+      
+            const findCoord = kmDistance.find(value => value.km == minCoord)
+            console.log('findCoor', findCoord)
+            
+          })
+              
+        // });
 
     }else {
         console.log('global: desde error final-- ' + statusGlobal);
