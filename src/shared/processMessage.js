@@ -27,6 +27,7 @@ let statusAddress = false;
 let statusGlobal = false;
 let statusMaps = false;
 let statusLocation = false;
+let statusFindStore = false;
 
 const Process = (textUser, number) => {
 
@@ -199,10 +200,7 @@ const Process = (textUser, number) => {
         
         pool.query("SELECT * FROM store", function (err, result, fields) {
           if (err) throw err;
-        // const selectCoord = selectCoordsStored;
-        //   console.log('variable', selectCoord);
-        //   console.log('sinVar', selectCoordsStored);
-        
+    
           // Crear un array con objetos de la latitud y longitud de cada tienda
           const coords = [];
           result.forEach(element => {
@@ -210,8 +208,7 @@ const Process = (textUser, number) => {
             coords.push({'lat': element.lat, 'log': element.log, 'id': element.id});
       
           });
-          // console.log(coords);
-          // return;
+
          
           // Hacer llamado a la API de maps para obtener las distancias entre rutas pasadas por coordenadas
           const getDistance = async (coord) => {
@@ -231,11 +228,30 @@ const Process = (textUser, number) => {
               
             })
             console.log(kmCoord)
+
+            //Distancia mas cercana
             const minCoord = Math.min(...kmCoord);
             console.log('minCoord', minCoord)
       
+            //Tienda mas cercana con su id
             const findCoord = kmDistance.find(value => value.km == minCoord)
             console.log('findCoor', findCoord)
+
+            //Seleccionar el store mas cercano
+            pool.query("SELECT * FROM store WHERE id = ?", [findCoord.id], function (err, result, fields) {
+                if (err) throw err;
+                const data = '¡Perfecto! Hemos encontrado un restaurante cerca de ti para enviar tu orden. 🍽 \n' +
+                             `*Restaurante: ${result[0].name_store}*`;
+                let model = whatsappModel.MessageText(data, number);
+                models.push(model);
+
+                const data2 = 'Selecciona tu pedido en el siguiente link. \n' +
+                              '*Preparate* porque todo se te va antojar. 😋';
+                let model2 = whatsappModel.MessageText(data2,number)
+                models.push(model2);
+
+                statusFindStore = true
+            })
             
           })
               
