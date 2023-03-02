@@ -257,12 +257,17 @@ const Process = (textUser, number) => {
                 console.log('result', result)
                 console.log('models', models)
 
+
+                models.forEach(model => {
+                    whatsappService.SendMessageWhatsapp(model);    
+                });
+            
                 statusFindStore = true
             })
             
           })
 
-          console.log('models desde fuera', models)
+        //   console.log('models desde fuera', models)
 
               
         });
