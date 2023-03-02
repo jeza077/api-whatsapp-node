@@ -254,6 +254,9 @@ const Process = (textUser, number) => {
                 let model2 = whatsappModel.MessageText(data2,number)
                 models.push(model2);
 
+                console.log('result', result)
+                console.log('models', models)
+
                 statusFindStore = true
             })
             
