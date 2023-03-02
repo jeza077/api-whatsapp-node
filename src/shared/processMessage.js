@@ -250,7 +250,7 @@ const Process = (textUser, number) => {
                 models.push(model);
 
                 const data2 = 'Selecciona tu pedido en el siguiente link. \n' +
-                              '*Preparate* porque todo se te va antojar. 😋' +
+                              '*Preparate* porque todo se te va antojar. 😋 \n' +
                               'https://store82202526.company.site/products/';
 
                 let model2 = whatsappModel.MessageText(data2,number, url = true)
@@ -260,7 +260,7 @@ const Process = (textUser, number) => {
                 console.log('models', models)
 
 
-                models.forEach(model => {
+                models.map(model => {
                     whatsappService.SendMessageWhatsapp(model);    
                 });
             
@@ -282,7 +282,7 @@ const Process = (textUser, number) => {
     }
 
 
-    models.forEach(model => {
+    models.map(model => {
         whatsappService.SendMessageWhatsapp(model);    
     });
 
