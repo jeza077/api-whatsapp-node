@@ -237,8 +237,12 @@ const Process = (textUser, number) => {
             const findCoord = kmDistance.find(value => value.km == minCoord)
             console.log('findCoor', findCoord)
 
+            pool.release();
+
+
             //Seleccionar el store mas cercano
             pool.query("SELECT * FROM store WHERE id = ?", [findCoord.id], function (err, result, fields) {
+                console.log('estoy en la segunda consulta')
                 if (err) throw err;
                 const data = '¡Perfecto! Hemos encontrado un restaurante cerca de ti para enviar tu orden. 🍽 \n' +
                              `*Restaurante: ${result[0].name_store}*`;
