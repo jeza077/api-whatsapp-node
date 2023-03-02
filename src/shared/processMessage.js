@@ -250,8 +250,10 @@ const Process = (textUser, number) => {
                 models.push(model);
 
                 const data2 = 'Selecciona tu pedido en el siguiente link. \n' +
-                              '*Preparate* porque todo se te va antojar. 😋';
-                let model2 = whatsappModel.MessageText(data2,number)
+                              '*Preparate* porque todo se te va antojar. 😋' +
+                              'https://store82202526.company.site/products/';
+
+                let model2 = whatsappModel.MessageText(data2,number, url = true)
                 models.push(model2);
 
                 console.log('result', result)

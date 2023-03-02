@@ -1,4 +1,4 @@
-const MessageText = (textResponse, number) => {
+const MessageText = (textResponse, number, url = false) => {
     const data = JSON.stringify(
         {
             "messaging_product": "whatsapp",    
@@ -6,7 +6,7 @@ const MessageText = (textResponse, number) => {
             "to": number,
             "type": "text",
             "text": {
-                "preview_url": false,
+                "preview_url": url,
                 "body": textResponse
             }
         }
