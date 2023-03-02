@@ -237,7 +237,7 @@ const Process = (textUser, number) => {
             const findCoord = kmDistance.find(value => value.km == minCoord)
             console.log('findCoor', findCoord)
 
-            pool.release();
+            // pool.release();
 
 
             //Seleccionar el store mas cercano
