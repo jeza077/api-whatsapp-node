@@ -261,6 +261,9 @@ const Process = (textUser, number) => {
             })
             
           })
+
+          console.log('models desde fuera', models)
+
               
         });
 
