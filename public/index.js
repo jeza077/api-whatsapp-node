@@ -1,6 +1,8 @@
+const { Process } = require("../src/shared/processMessage");
+
 const botId = '101999332771661';
 const phoneNbr = '50431415039';
-const bearerToken = 'EAAubQGSCTC8BAFD3tSaMTYIfWa0ZA1c2f1WQEVnl4cXB7kwtTtnpK2CSVut78inAzagFN15arLgh6dBFlIlK8vlmq0uSKv7vqrq2PgFR1iGMSZB18JPvBsvJji7yZAPuSGtoJ9G2RHKuR71TsbFIbLF42WtDI1zeEMAg9wysK4zHHKqLa2o';
+// const bearerToken = 'EAAubQGSCTC8BAFD3tSaMTYIfWa0ZA1c2f1WQEVnl4cXB7kwtTtnpK2CSVut78inAzagFN15arLgh6dBFlIlK8vlmq0uSKv7vqrq2PgFR1iGMSZB18JPvBsvJji7yZAPuSGtoJ9G2RHKuR71TsbFIbLF42WtDI1zeEMAg9wysK4zHHKqLa2o';
 
 /*
 const urlWA = 'https://graph.facebook.com/v15.0/' + botId + '/messages';
@@ -105,7 +107,7 @@ const postReq = {
                 const postReq = {
                     method: 'POST',
                     headers: {
-                        'Authorization': 'Bearer ' + bearerToken,
+                        'Authorization': 'Bearer ' + process.env.TOKEN_WA,
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(data),
