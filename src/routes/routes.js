@@ -8,7 +8,6 @@ router
 .get("/", whatsappController.VerifyToken)
 .post("/", whatsappController.ReceiveMessage)
 
-app.use(express.static(__dirname + '/public'))
-console.log(app.use(express.static(__dirname + '/public')))
+
 
 module.exports = router;
